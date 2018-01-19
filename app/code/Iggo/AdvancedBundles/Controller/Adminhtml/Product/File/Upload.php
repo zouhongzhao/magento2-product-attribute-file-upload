@@ -61,7 +61,7 @@ class Upload extends \Iggo\AdvancedBundles\Controller\Adminhtml\Product\File
 
         try {
             $uploader = $this->uploaderFactory->create(['fileId' => $type]);
-
+            $uploader->setAllowedExtensions(['pdf']);
             $result = $this->_fileHelper->uploadFromTmp($tmpPath, $uploader);
 
             if (!$result) {
